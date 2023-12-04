@@ -11,6 +11,7 @@
     <header>
       <nav>
         <ul id="main-menu">
+          <!-- #main-menu li -->
           <li class="main-link">Home</li>
           <li>Chi siamo</li>
           <li>Contatti</li>
@@ -50,13 +51,18 @@
       </article>
       <aside>
         <ol>
-          <li><a href="https://www.google.com">First Google Link</a></li>
+          <li>
+            <a id="first-link-element" href="https://www.google.com"
+              >First Google Link</a
+            >
+          </li>
           <li><a href="https://www.google.com">Second Google Link</a></li>
           <li><a href="https://www.google.com">Third Google Link</a></li>
           <li><a href="https://www.google.com">Fourth Google Link</a></li>
         </ol>
       </aside>
     </main>
+    <button onclick="makeFooterInvisible()">NASCONDI FOOTER</button>
     <footer>
       <ul id="footer-menu">
         <li>Contatti</li>

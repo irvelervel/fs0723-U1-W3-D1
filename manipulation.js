@@ -110,4 +110,92 @@ console.log(
   ]
 )
 
+// postilla: ogni elemento della pagina trovato contiene anche il riferimento
+// al suo parent element!
+
+const footerMenu = document.getElementById('footer-menu')
+console.log(footerMenu.parentElement.parentElement)
+
 // --FINITO PUNTO 1)--
+
+// 2) DOM MANIPULATION (manipolazione degli elementi trovati con i metodi di 1) )
+
+// const titleOfThePage = document.getElementById('main-title')
+const titleOfThePage = document.getElementsByTagName('h1')[0] // il primo elemento dell'
+// array contenente TUTTI gli h1 (ma in realtà ne avevamo uno solo...!)
+
+console.log(titleOfThePage) // giusto!
+
+// LETTURA/CAMBIO VALORE TESTUALE
+// ogni elemento testuale ha una proprietà che si chiama "innerText"
+// funziona in lettura! ...
+console.log(titleOfThePage.innerText) // "DOM MANIPULATION"
+// ...ma funziona anche in scrittura!
+titleOfThePage.innerText = 'EPICODE!!!' // ri-assegnato il suo innerText a qualcos'altro!
+
+// lavorare con le classi CSS dell'elemento
+const firstParagraph = document.querySelector('article p') // primo paragrafo
+firstParagraph.classList.add('ciao') // aggiungo una class="ciao" al primo paragrafo
+
+const allTheParagraphs = document.querySelectorAll('article p') // un array di due elementi
+
+// non fatevi prendere dalla tentazione di manipolare il DOM su un ARRAY DI ELEMENTI!
+// le proprietà che abbiamo visto e che vedremo si applicano sugli ELEMENTI SINGOLI,
+// se trovate un array di elementi grazie a getElementsByClassName, querySelectorAll etc.
+// dovete CICLARE questi array, in modo da ottenere il SINGOLO ELEMENTO ad ogni ciclo!
+
+// allTheParagraphs.classList.add('ciao') // <-- NON FUNZIONA
+for (let i = 0; i < allTheParagraphs.length; i++) {
+  allTheParagraphs[i].classList.add('ciao') // FUNZIONA!
+}
+
+firstParagraph.classList.remove('ciao') // tolgo il colore rosso dal primo paragrafo
+// su classList c'è anche toggle, replace, etc.
+
+// for (let i = 0; i < allTheParagraphs.length; i++) {
+//   allTheParagraphs[i].classList.remove('ciao') // FUNZIONA!
+// }
+
+// possiamo anche inserire "al volo" degli inline-styles
+// prendiamo il li con classe "main-link"
+const anotherMainLink = document.getElementsByClassName('main-link')[0]
+// <li class="main-link">Home</li>
+
+anotherMainLink.style.fontSize = '1.5em'
+anotherMainLink.style.opacity = '0.5'
+// ricordatevi che non avrei potuto cambiare le proprietà dell'intero array!
+// quando avete un array di elementi, o selezionate l'elemento singolo con un indice
+// oppure, se volete ripetere l'operazione su TUTTI gli elementi dell'array
+// lo dovete ciclare!
+
+// facciamo una funzione per cambiare il colore del testo a TUTTI gli <li> della navbar
+// creiamo una funzione per farlo!
+
+const makeThemAllOrange = function () {
+  // 1) selezioniamo gli elementi interessati
+  const allTheListItems = document.querySelectorAll('#main-menu li')
+  // 2) applichiamo ora il colore verde su TUTTI questi <li>
+  // non posso farlo di colpo! stiamo lavorando con un array
+  // dobbiamo CICLARE l'array
+  for (let i = 0; i < allTheListItems.length; i++) {
+    // ora so che allTheListItems[i] è un elemento, ovvero uno degli <li>
+    allTheListItems[i].style.color = 'orange'
+  }
+}
+
+// ma se non la invochiamo non succederà un bel niente :)
+makeThemAllOrange()
+
+const makeFooterInvisible = function () {
+  // 1) seleziono l'elemento interessato
+  const footerElement = document.getElementsByTagName('footer')[0]
+  // [ <footer></footer> ]
+  // footerElement è ora il tag <footer>
+  footerElement.classList.toggle('invisible')
+  // <footer class="invisible"></footer>
+}
+
+const changeAttribute = function () {
+  const link = document.getElementById('first-link-element')
+  link.setAttribute('href', 'www.epicode.com')
+}
