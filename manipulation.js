@@ -199,3 +199,26 @@ const changeAttribute = function () {
   const link = document.getElementById('first-link-element')
   link.setAttribute('href', 'www.epicode.com')
 }
+
+const addsANewLi = function () {
+  // inserire un NUOVO elemento nella pagina è un'operazione a due step:
+  // 1) creazione dell'elemento
+
+  const newLiElement = document.createElement('li') // <li></li>
+  // <li></li> <-- è vuoto! diamogli un contenuto testuale
+  newLiElement.innerText = 'Lavora con noi!'
+  // <li>Lavora con noi!</li>
+  // ora l'elemento è completo, ma non esiste ancora nella pagina!
+
+  // 2) inserimento dell'elemento nella pagina
+  // un elemento va necessariamente inserito da qualche parte nella pagina
+  // il metodo più classico da seguire, è selezionare nel DOM il suo contenitore
+  // e "appendercelo" dentro
+
+  // selezioniamo il suo futuro contenitore, la <ul> con id "main-menu"
+  const parentList = document.getElementById('main-menu') // trovo il parent
+  parentList.appendChild(newLiElement) // vi appendo dentro <li>Lavora con noi!</li>
+  // <li>Lavora con noi!</li> finirà come ULTIMO elemento della lista!
+
+  // makeThemAllOrange() // richiamo la funzione che rende tutti gli li arancioni
+}
