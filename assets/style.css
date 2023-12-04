@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-size: 1.2em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-menu > li {
+  display: inline;
+  margin-right: 10px;
+}
+
+#main-menu {
+  /* margin-top: 1em;
+    margin-bottom: 1em; */
+  margin: 1em 0; /* stessa cosa di sopra, solo abbreviato! */
+  /* se a margin: date UN valore, sarà quel valore su tutti e 4 i lati */
+  /* se a margin: date DUE valore, il primo vale sopra/sotto, il secondo vale dx/sx */
+  /* se a margin: date QUATTRO valori, si ragiona in senso ORARIO (sopra, dx, sotto, sx) */
+}
+
+header h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.75em;
+}
+
+article:nth-of-type(2) {
+  /* il SECONDO article */
+  text-align: center;
+}
+
+article img {
+  margin: 0.5em 0;
+}
+
+aside {
+  margin: 1em 0;
+}
+
+footer {
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 1em;
+}
