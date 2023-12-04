@@ -57,4 +57,57 @@ console.log("se voglio trovare l'elemento <li>", mainLink[0])
 const dontknowagain = document.getElementsByClassName('cadrega') // non esiste
 console.log('cosa ho trovato? un ARRAY VUOTO', dontknowagain)
 
-// c)
+// c) con getElementsByTagName, un metodo che richiede il nome del tag da cercare
+// N.B è plurale, tornerà sempre un array come risultato
+const allTheAnchors = document.getElementsByTagName('a') // tutte le ancore della pagina
+console.log('tutte gli anchor tag della pagina', allTheAnchors)
+
+const allTheSections = document.getElementsByTagName('section') // non abbiamo sections!
+console.log('tutte le section della pagina', allTheSections)
+
+const allTheBodies = document.getElementsByTagName('body')
+// troviamo un array con UN elemento, il body tag della pagina!
+// allTheBodies[0] sarebbe il tag <body>
+
+// d) querySelector e querySelectorAll, permettono di selezionare un elemento nella pagina
+// tramite un selettore CSS
+
+const allThePInsideArticles = document.querySelectorAll('article p')
+// querySelector e querySelectorAll accettano parametri stringa, con il selettore
+// che usereste in CSS per targhettare l'elemento/gli elementi che vi interessano
+console.log(
+  'dovrebbero essere solo i due p dentro il primo e terzo article',
+  allThePInsideArticles
+)
+
+// document.querySelector('#main-title') NO! usiamo getElementById
+// document.querySelectorAll('.content') NO! usiamo getElementsByClassName
+
+console.log(document.querySelector('aside ol li:nth-of-type(3) a')) // qua l'orso polare è morto ma è morto contento!
+console.log(document.querySelectorAll('aside ol li:nth-of-type(3) a')) // qua l'orso polare è morto ma è morto contento!
+
+console.log(document.querySelector('article')) // primo article della pagina
+console.log(document.querySelectorAll('article')) // array con tutti gli article della pagina
+
+// finiti i metodi principali! facciamo pratica e troviamo degli elementi nella pagina!
+
+//- seleziono il secondo paragrafo
+// console.log(document.getElementsByTagName('p')[1])
+// console.log(document.querySelectorAll('.content p')[1])
+// console.log(document.querySelector('.content:nth-of-type(3) p'))
+
+// - seleziono la lista ul del footer
+console.log(document.getElementById('footer-menu'))
+
+// - seleziono il li "Chi siamo"
+// console.log(document.querySelectorAll('#main-menu li')[1])
+// console.log(document.querySelector('#main-menu li+li'))
+
+// - seleziono l'ultimo li della lista nel footer (strage di orsi polari)
+console.log(
+  document.querySelectorAll('#footer-menu li')[
+    document.querySelectorAll('#footer-menu li').length - 1
+  ]
+)
+
+// --FINITO PUNTO 1)--
